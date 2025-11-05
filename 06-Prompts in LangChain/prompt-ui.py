@@ -1,24 +1,28 @@
-# Before: from langchain.prompts import PromptTemplate
-from langchain_core.prompts import PromptTemplate # CORRECTED IMPORT for PromptTemplate as we are using langchain_core
+# Before: from langchain_core.prompts import PromptTemplate # CORRECTED IMPORT for PromptTemplate as we are using langchain_core
+from langchain_core.prompts import PromptTemplate # Keep this import
 
 from langchain_google_genai import ChatGoogleGenerativeAI
 import streamlit as st
-# No need to import 'langchain.prompts' here anymore BECAUSE we already imported PromptTemplate from langchain_core.prompts
 from dotenv import load_dotenv
 import os
 
 # Load environment variables from .env file
 load_dotenv()
 
-google_api_key = os.getenv("GOOGLE_API_KEY")
+google_api_key = os.getenv("google_api_key")
 
 if not google_api_key:
-    st.error("Google AI Studio API key not found. Please set it in a .env file or as an environment variable (GOOGLE_API_KEY).")
+    st.error("Google AI Studio API key not found. Please set it in a .env file or as an environment variable (google_api_key).")
     st.stop()
 
-model = ChatGoogleGenerativeAI(model="gemini-2.0-flash", temperature=0, google_api_key=google_api_key)
+model = ChatGoogleGenerativeAI(
+    model="gemini-2.0-flash",
+    temperature=0,
+    google_api_key=google_api_key,
+    convert_system_message_to_human=True # Keep this for compatibility
+)
 
-st.header("Research Tool (Powered by Google Gemini)")
+st.header("Research Tool (Powered by Google Gemini-jonah'special)")
 
 paper_input = st.selectbox(
     "Select Research Paper Name",
@@ -35,10 +39,14 @@ length_input = st.selectbox(
     ["Short (1-2 paragraphs)", "Medium (3-5 paragraphs)", "Long (detailed explanation)"]
 )
 
+# --- START OF MODIFICATION ---
+# Instead of loading from file, define the PromptTemplate directly here
 template = PromptTemplate(
   template="Explain the research paper titled '{paper_name}' in a {explanation_style} style with a {explanation_length} length.",
   input_variables=["paper_name", "explanation_style", "explanation_length"]
 )
+# --- END OF MODIFICATION ---
+
 
 if st.button("Generate Explanation"):
     st.write("Generating explanation...")

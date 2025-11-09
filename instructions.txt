@@ -1,0 +1,7 @@
+On creaing a new folder
+do the following steps
+
+1.   python -m venv venv
+2.  .\venv\Scripts\activate.ps1
+3.  pip install --upgrade langchain langchain-core langchain-google-genai python-dotenv transformers
+4. python --filename.py--

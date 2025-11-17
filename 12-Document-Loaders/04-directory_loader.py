@@ -6,8 +6,10 @@ loader=DirectoryLoader(
     loader_cls=PyPDFLoader  # Specify the loader class for PDF files
 )
 
-docs = loader.load()  # Load the documents
+docs = loader.load()  # Load all the documents at once
+docs1=loader.lazy_load()  # Lazy load(loads as when needed instead of at once) the documents
 print(len(docs))  # Print the number of documents loaded  
+print(len(list(docs1)))  # Print the number of documents loaded lazily
 
 
 

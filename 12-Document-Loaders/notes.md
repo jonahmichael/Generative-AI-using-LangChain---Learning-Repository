@@ -24,3 +24,7 @@ They are of many types: but the important ones are:
 4. CSVLoader: Loads CSV files.
 
 Each loader reads the content from its respective source and converts it into a standardized Document object that can be further processed in a RAG system.
+
+Check out https://docs.langchain.com/oss/python/integrations/document_loaders
+
+Also, we can create custom Documetn Loaders. Refer the langchain pafe for more details.

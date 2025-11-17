@@ -1,0 +1,48 @@
+'''
+5. Runnable Branches
+RunnableBranch allows you to create conditional logic within your runnable workflows. For example, you might want to execute different Runnables based on the output of a previous step.
+
+eg: topic ->prompt -> model -> 
+if number of words in essay > 500:  => summarize essay
+else: => return essay as is
+
+'''
+
+from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain_core.prompts import PromptTemplate
+from langchain_core.output_parsers import StrOutputParser
+import os
+from dotenv import load_dotenv
+from langchain_core.runnables import RunnableSequence, RunnableParallel, RunnablePassthrough, RunnableLambda, RunnableBranch
+
+load_dotenv()
+
+prompt=PromptTemplate(
+    template="write an essay on the topic '{topic}'",
+    input_variables=["topic"])
+
+def word_counter(text):
+     return len(text.split())
+   
+prompt_summary=PromptTemplate(
+    template="summarize the following essay in less than 100 words:\n{essay}",
+    input_variables=["essay"])
+
+model = ChatGoogleGenerativeAI(
+    model="gemini-2.0-flash", # Corrected model name to "gemini-2.0-flash"
+    temperature=0, # It's good practice to set temperature for consistent output
+    google_api_key=os.getenv("google_api_key")
+)
+
+parser= StrOutputParser()
+
+report_generator = RunnableSequence([ prompt, model, parser ])   # Chaining prompt, model, and parser together
+# This will generate an essay based on the topic
+
+branch_chain = RunnableBranch(
+    (lambda x: word_counter(x) > 500, RunnableSequence([ prompt_summary, model, parser ])),  # (condition , runnable) pairs
+    RunnablePassthrough()  # default runnable if no conditions are met
+)
+
+final_chain = RunnableSequence([ report_generator, branch_chain ])  # First generate the essay, then pass it to the branch chain
+print(final_chain.invoke({"topic":"Artificial Intelligence"}))

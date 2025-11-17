@@ -1,61 +1,94 @@
-# In 2022, when LLM models started to gain popularity,
-# there were many companies that offered API access to their models.
-# Some of the notable companies included OpenAI, Google, Microsoft, and Anthropic.
+# Background: Why LangChain Was Created
 
-# But each of these companies had different ways of structuring their API calls,
-# different authentication methods, and different response formats.
+In 2022, when LLM models started to gain popularity, many companies began offering API access to their models.  
+Some notable companies included **OpenAI, Google, Microsoft, and Anthropic**.
 
-# Therefore, they wanted build a framework that would allow them to easily switch between different LLM providers
-# without having to rewrite their entire codebase each time they wanted to use a different model. 
+However, each company had:
 
-# so they created LangChain, a framework that abstracts away the differences between different LLM providers
+- different API structures  
+- different authentication methods  
+- different response formats  
 
-# _______________________________________________________________
+Because of these inconsistencies, developers needed a framework that would allow them to switch between different LLM providers **without rewriting their entire codebase**.
 
-# now for to simplfy the process of working with LLMs,
-# they introductued chains (a sequence of calls to LLMs and other utilities),
+This led to the creation of **LangChain**, a framework that abstracts away the differences between LLM providers.
 
-# which basically allows us to chain together multiple calls to LLMs and other utilities
-# in a single pipeline, making it easier to build complex applications.1
+---
 
-# for example, we can create a chain that takes a user input,
-# processes it using an LLM, and then stores the result in a database,
-# all in a single function call.
+# Introduction of Chains
 
-# but what happened is that, the AI engineers started to realize that
-# the ended up writting a lot of such chains.
+To simplify working with LLMs, LangChain introduced **chains**, which are sequences of calls to LLMs and other utilities.
 
-# The problem with this approach is that,
-# while chains are great for simplifying the process of working with LLMs,
-# they can become difficult to manage and maintain as the number of chains grows. (The codebase can become cluttered with many different chains, making it hard to find and update specific functionality.)
-# also the learning curve for new developers can be steep, as they need to understand the intricacies of each chain in order to effectively use and modify them.
+Chains allow developers to:
 
-# https://www.langchain.com/
+- combine multiple steps in a single pipeline  
+- build complex applications more easily  
 
-# To address these issues, LangChain introduced Runnables,
-# which are a more modular and reusable way to build applications with LLMs.
-# Unit of Work: Runnables are designed to encapsulate a single unit of work,
-# making it easier to understand and manage individual components of an application.
+**Example:**  
+A chain can take user input → process it with an LLM → store the result in a database, all in one function call.
 
-# common interface: Runnables provide a common interface for different types of components, like invoke(),batch(), stream(), etc.
-# This makes it easier to switch between different implementations and integrate new components into an application.
-# in layman terms, Runnables are like building blocks that can be easily combined and reused to create complex applications with LLMs,
-# without the need to create and manage many different chains.
+---
 
-# _______________________________________________
+# The Problem With Too Many Chains
 
-# Runnavles are of 2 types:
-# Task Specific Runnables: These are designed to perform a specific task,
-# such as text generation, summarization, or translation. It provides specialized functionality for a particular use case.
-# These Runnables are optimized for their specific task and may include additional features or parameters to enhance their performance.
-# Examples include LLMs, PromptTemplates, and TextSplitters.
+As AI engineers continued building more chains, they realized:
 
-# Runnable Primitives: These are more general-purpose components that can be used to build a variety of applications. Fundamental building blocks that can be composed together to create more complex Runnables.
-# it provides basic functionality that can be extended or combined with other Runnables to create more specialized behavior.
-# Examples include Chains, Maps, and Reduces.
+- the number of chains became difficult to manage  
+- the codebase grew cluttered  
+- updating specific functionality became harder  
+- new developers faced a steep learning curve, since they had to understand many individual chains
 
-# 1. RunnaleSequence: This Runnable allows you to chain together multiple Runnables in a sequence.
-# It takes a list of Runnables as input and executes them one after the other, passing the output of one Runnable as the input to the next.
-# This is useful for creating complex workflows that involve multiple steps, such as data preprocessing, model inference, and post-processing.
+---
 
-# R1 -> R2 -> R3 -> ... -> Rn
+# Solution: Runnables
+
+To address these issues, LangChain introduced **Runnables** — a more modular and reusable approach.
+
+### Key ideas behind Runnables:
+
+- **Unit of Work:** Each Runnable encapsulates a single task  
+- **Common Interface:** Methods like `invoke()`, `batch()`, and `stream()` work across all Runnables  
+- **Modularity:** Runnables act like building blocks that can be easily combined to form complex applications  
+- **Less need for manually managing many chains**
+
+---
+
+# Types of Runnables
+
+There are **two main types**:
+
+## 1. Task-Specific Runnables
+Designed for specific tasks like:
+
+- text generation  
+- summarization  
+- translation  
+
+Examples include:
+
+- LLMs  
+- PromptTemplates  
+- TextSplitters  
+
+These are optimized for their individual tasks.
+
+---
+
+## 2. Runnable Primitives
+General-purpose building blocks used to compose more complex logic.  
+They provide basic functionality and can be extended or combined.
+
+Examples include:
+
+- Chains  
+- Maps  
+- Reduces  
+
+---
+
+# RunnableSequence
+
+`RunnableSequence` allows chaining multiple Runnables in order.
+
+It takes a list of Runnables and executes them one by one:
+

@@ -72,14 +72,14 @@ LangChain is a powerful framework for developing applications powered by Large L
 - Document processing and ingestion pipelines
 - Working with different file formats
 
-### Upcoming Topics
-
-The following topics are planned for future implementation as part of the course progression:
-
 #### 9. Text Splitters (Video 11)
 - Chunking strategies for large documents
 - Character-based and token-based splitting
 - Recursive text splitting techniques
+
+### Upcoming Topics
+
+The following topics are planned for future implementation as part of the course progression:
 
 #### 10. Vector Stores (Video 12)
 - Understanding vector databases

@@ -67,14 +67,14 @@ LangChain is a powerful framework for developing applications powered by Large L
 - Runnable sequences and composition
 - Advanced runnable patterns and use cases
 
-### Upcoming Topics
-
-The following topics are planned for future implementation as part of the course progression:
-
 #### 8. Document Loaders (Video 10)
 - Loading data from various sources (PDF, CSV, Web, etc.)
 - Document processing and ingestion pipelines
 - Working with different file formats
+
+### Upcoming Topics
+
+The following topics are planned for future implementation as part of the course progression:
 
 #### 9. Text Splitters (Video 11)
 - Chunking strategies for large documents

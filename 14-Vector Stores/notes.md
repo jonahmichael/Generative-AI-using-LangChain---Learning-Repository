@@ -40,17 +40,17 @@ So these embeddings:
   
   ## Key Features of Vector Stores:
   
-  ###1. Efficient Storage:
+  ### 1. Efficient Storage:
   Vector Stores use data structures that optimize the storage of high-dimensional. Ensures vectors and their meta data are stored, wheather for qucik lookups(RAM-volatile) or on disk storage(harddisk-Permanent).
   
-  ### Similarity Search:
+  ### 2.Similarity Search:
   They implement algorithms that allow for fast similarity searches, such as Approximate Nearest Neighbors (ANN) algorithms. This enables quick retrieval of vectors that are similar to a given query vector.
   
-  ### Indexing:
+  ### 3.Indexing:
   Vector Stores create indexes that facilitate rapid searching and retrieval of vectors based on their similarity. These indexes are designed to handle the complexities of high-dimensional data.
   eg: Approximate Nearest Neighbor (ANN) algorithms like HNSW, Faiss, Annoy etc.
   
-  ### CRUD Operations:
+  ### 4.CRUD Operations:
   They provide Create, Read, Update, and Delete operations for managing vectors and their associated metadata. This makes it easy to maintain and update the vector database as needed.
   
   
@@ -96,7 +96,6 @@ So these embeddings:
         
     ## Vector Database = Vector Store + Database Functionalities
     
-    __________________________________________________
     
     # Vector Stores in LangChain:
     
@@ -120,14 +119,16 @@ So these embeddings:
     9. Annoy
     10. HNSWLib
     
-    We are going to explore some of these vector stores in upcoming lessons.
+    We are going to explore some of these vector stores in the upcoming lessons.
     
 # 1. Chroma Vector Store:
 Chroma is an open-source vector database that is designed to handle high-dimensional vector data efficiently. It provides a simple and intuitive interface for storing, indexing, and retrieving vectors, making it ideal for applications involving embeddings and semantic search. It is lightweight and easy to set up, making it a popular choice for developers looking to integrate vector storage capabilities into their applications.
 
 It has features of Vector Store + some Database functionalities. RDBMS features are also present.
 
-Check code in google colab : 
+Check the code in Google Colab: https://colab.research.google.com/drive/1llQI3TwRjuovGlc3-O0lxqVjhkrgVMK8#scrollTo=F2Jwi1U5BGVN
+
+Lot of errors becuase i dont have chatgpt's api key
 
     
     

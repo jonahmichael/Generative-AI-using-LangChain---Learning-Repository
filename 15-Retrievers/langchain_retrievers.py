@@ -8,7 +8,7 @@ Original file is located at
 """
 
 import os
-os.environ["OPENAI_API_KEY"] = "sk-proj-aOrFC5******************************KrkA"
+os.environ["OPENAI_API_KEY"] = "***************************"
 
 !pip install langchain chromadb faiss-cpu openai tiktoken langchain_openai langchain-community wikipedia
 

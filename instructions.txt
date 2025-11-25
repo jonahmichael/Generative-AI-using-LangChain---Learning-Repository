@@ -3,5 +3,5 @@ do the following steps
 
 1.   python -m venv venv
 2.  .\venv\Scripts\activate.ps1
-3.  pip install --upgrade langchain langchain-core langchain-google-genai python-dotenv transformers
+3.  pip install --upgrade langchain langchain-core langchain-google-genai python-dotenv transformers langchain_community
 4. python --filename.py--

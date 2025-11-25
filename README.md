@@ -77,19 +77,19 @@ LangChain is a powerful framework for developing applications powered by Large L
 - Character-based and token-based splitting
 - Recursive text splitting techniques
 
-### Upcoming Topics
-
-The following topics are planned for future implementation as part of the course progression:
-
 #### 10. Vector Stores (Video 12)
 - Understanding vector databases
 - Storing and indexing embeddings
 - Integration with FAISS, Chroma, Pinecone
 
-#### 11. Retrievers (Video 13)
+#### 11. Retrievers (Video 13) _ NOT FULLY DONE BUT CONCEPTS DONE 
 - Building retrieval systems
 - Similarity search implementations
 - Advanced retrieval strategies
+
+### Upcoming Topics
+
+The following topics are planned for future implementation as part of the course progression:
 
 #### 12. Retrieval Augmented Generation - RAG (Video 14-15)
 - Understanding RAG architecture

@@ -27,3 +27,5 @@ so as of now i am going to watch his video completely and then start building th
 
 the .py file along with this notes is his code that he has written in the video. I will follow the same steps and write the code in a modular way so that it can be easily converted into a chrome extension later on.
 
+https://colab.research.google.com/drive/1pat55z_iiLqzInsLi3sWS2wekFCXprQW?usp=sharing
+

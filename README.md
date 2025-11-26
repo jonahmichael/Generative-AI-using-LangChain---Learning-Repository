@@ -87,14 +87,14 @@ LangChain is a powerful framework for developing applications powered by Large L
 - Similarity search implementations
 - Advanced retrieval strategies
 
-### Upcoming Topics
-
-The following topics are planned for future implementation as part of the course progression:
-
 #### 12. Retrieval Augmented Generation - RAG (Video 14-15)
 - Understanding RAG architecture
 - Building RAG systems for document Q&A
 - Implementing YouTube chatbot with RAG
+
+### Upcoming Topics
+
+The following topics are planned for future implementation as part of the course progression:
 
 #### 13. Tools in LangChain (Video 16-17)
 - Creating custom tools
